@@ -115,8 +115,9 @@ function showLoad(on, msg) {
 
 async function fetchSub(sub, indexStore) {
   try {
+    const target = `https://www.reddit.com/r/${sub}/hot.json?limit=100`;
     const resp = await fetch(
-      `https://www.reddit.com/r/${sub}/hot.json?limit=100`,
+      `https://corsproxy.io/?url=${encodeURIComponent(target)}`,
       { headers: HEADERS }
     );
     const data = await resp.json();
