@@ -94,8 +94,7 @@ async function load() {
   try {
     const target = `https://www.reddit.com/r/${sub}/hot.json?limit=100`;
     const resp = await fetch(
-      `https://corsproxy.io/?url=${encodeURIComponent(target)}`,
-      { headers: HEADERS }
+      `https://corsproxy.io/?url=${encodeURIComponent(target)}`
     );
     const data = await resp.json();
     const posts = (data.data?.children || []).map(p => ({

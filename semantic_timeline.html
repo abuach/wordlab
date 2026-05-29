@@ -130,8 +130,7 @@ async function load() {
     // Fetch /new for time-stamped posts
     const target = `https://www.reddit.com/r/${sub}/new.json?limit=100`;
     const resp = await fetch(
-      `https://corsproxy.io/?url=${encodeURIComponent(target)}`,
-      { headers: HEADERS }
+      `https://corsproxy.io/?url=${encodeURIComponent(target)}`
     );
     const data = await resp.json();
     const posts = (data.data?.children || []).map(p => ({
